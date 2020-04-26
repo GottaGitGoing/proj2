@@ -24,11 +24,13 @@ int main() {
     }
     // ------------------------------------------
     
-    // for (int i =0;i<grade_size; ++i)
-    // {
-    //     std::cout << "grade scale " << grade_scale[i] << std::endl;
-    //     std::cout << "grade artifacts " << grade_art[i] << std::endl;
-    // }
+    for (int i =0;i<grade_size; ++i)
+    {
+        std::cout << "grade scale " << grade_scale[i] << std::endl;
+        std::cout << "grade artifacts " << grade_art[i] << std::endl;
+    }
+
+
 
     // ------ Intermission -----------
     struct Student_Info
@@ -61,6 +63,7 @@ int main() {
         student_info[i].grade_option = option;
     }
     // Student_Info* student_info = new Student_Info[roster_size];
+    
     for (int i=0; i<roster_size;++i)
     {
         std::cout << student_info[i].name  
@@ -76,6 +79,33 @@ int main() {
     //     // std::cout << id << "   " << option << "   " << name << std::endl;
     // }
     
+    // --------------- End of Student Info -----------
 
+
+    //  -------------Start of Raw Scores --------------
+    
+    int raw_size, assignment_score;
+    std::cin >> raw_size;
+    int* assignments = new int [grade_size+1];
+    
+    while (raw_size!=0){
+    for (int i=0;i<grade_size+1;++i)
+    {
+        std::cin>> assignment_score;
+        assignments[i] = assignment_score;
+    }
+    
+    for (int i=0; i<grade_size+1; ++i)
+    {
+        std::cout << assignments[i]<< ' ';
+    }
+    std::cout << std::endl;
+    raw_size-=1;
+    }
+
+    // ---------- End of Raw Scores -----------
+
+
+    
 
 }
