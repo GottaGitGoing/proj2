@@ -105,7 +105,24 @@ int main() {
 
     // ---------- End of Raw Scores -----------
 
+    // --------- Start of Cutoffs ------------
+    int cut_sets;
+    double cut_offs[4];
+    double percents;
 
+    std::cin >> cut_sets;
+    for (int i=0;i<cut_sets;++i)
+    {
+        for (int i=0; i<4;++i)
+        {
+            std::cin>> percents;
+            cut_offs[i] = percents;
+        }
+        for (int i=0; i< 4;++i)
+    {
+        std::cout << cut_offs[i] << " ";
+    }
+    std::cout << std::endl;
+    }
     
-
 }
