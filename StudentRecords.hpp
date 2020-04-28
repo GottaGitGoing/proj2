@@ -13,4 +13,7 @@ struct Student_Info
 
 Student_Info* CreateStudentRecord(int roster_size);
 
+
+Student_Info* UpdateStudentRecord(Student_Info* student_info, int* grade_scale, int* grade_art, int roster_size, int grade_size);
+
 #endif

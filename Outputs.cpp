@@ -4,7 +4,6 @@
 #include "StudentRecords.hpp"
 
 
-// void CreateScoreOut()
 
 void CreateCutOut(Student_Info *student_info, int roster_size, int cut_size)
 {

@@ -37,36 +37,36 @@ int Start()
 
 
     //  -------------Start of Raw Scores --------------
-
-    int raw_size, assignment_score, stud_id;
-    std::cin >> raw_size;
-    double the_score = 0;
-    int the_scale = 0;
-    int artif = 0;
-    double total = 0;
+    student_info = UpdateStudentRecord(student_info, grade_scale, grade_art, roster_size,grade_size);
+    // int raw_size, assignment_score, stud_id;
+    // std::cin >> raw_size;
+    // double the_score = 0;
+    // int the_scale = 0;
+    // int artif = 0;
+    // double total = 0;
 
     
-    while (raw_size != 0)
-    {
-        the_score = 0;
-        std::cin >> stud_id; // 0 index is the studet id
-        for (int field = 0;field < grade_size;field++)
-        {
-            std::cin >> assignment_score;
-            the_scale = grade_scale[field];
-            artif = grade_art[field];
-            total = (double(assignment_score) / double(artif)) * the_scale;
-            the_score = the_score + total;
-        }
-        for (int student = 0; student < roster_size;student++) // Here it looks for the matching student id
-        {
-            if (stud_id == student_info[student].student_id)
-            {
-                student_info[student].score = the_score;
-            }
-        }
-        raw_size--;
-    }
+    // while (raw_size != 0)
+    // {
+    //     the_score = 0;
+    //     std::cin >> stud_id; // 0 index is the studet id
+    //     for (int field = 0;field < grade_size;field++)
+    //     {
+    //         std::cin >> assignment_score;
+    //         the_scale = grade_scale[field];
+    //         artif = grade_art[field];
+    //         total = (double(assignment_score) / double(artif)) * the_scale;
+    //         the_score = the_score + total;
+    //     }
+    //     for (int student = 0; student < roster_size;student++) // Here it looks for the matching student id
+    //     {
+    //         if (stud_id == student_info[student].student_id)
+    //         {
+    //             student_info[student].score = the_score;
+    //         }
+    //     }
+    //     raw_size--;
+    // }
     std::cout << "TOTAL SCORES" << std::endl;
     for (int st = 0;st < roster_size;st++)
     {
