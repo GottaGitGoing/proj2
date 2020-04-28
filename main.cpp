@@ -5,30 +5,24 @@
 
 
 int main() {
-    
+
 
     // --------- Grade Artifact -----------
-    int grade_size, grade_pts,scale_pts;
-    std::cin>> grade_size;
-    int *grade_art = new int [grade_size];
-    int *grade_scale = new int [grade_size];
-    for (int i=0; i <grade_size;++i)
+    int grade_size, grade_pts, scale_pts;
+    std::cin >> grade_size;
+    int* grade_art = new int[grade_size];
+    int* grade_scale = new int[grade_size];
+    for (int i = 0; i < grade_size;++i)
     {
         std::cin >> grade_pts;
-        grade_art[i] = grade_pts; 
+        grade_art[i] = grade_pts;
     }
-    for (int i=0; i <grade_size;++i)
+    for (int i = 0; i < grade_size;++i)
     {
-        std::cin >>  scale_pts;
+        std::cin >> scale_pts;
         grade_scale[i] = scale_pts;
     }
     // ------------------------------------------
-    
-    for (int i =0;i<grade_size; ++i)
-    {
-        std::cout << "grade scale " << grade_scale[i] << std::endl;
-        std::cout << "grade artifacts " << grade_art[i] << std::endl;
-    }
 
 
 
@@ -38,22 +32,23 @@ int main() {
         int student_id;
         std::string grade_option;
         std::string name;
+        double score = 0.0;
 
     };
 
     // ----------Students Records ---------------
     // int student_count;
     // std::cin >> student_count;
-    
+
     int id, roster_size;
     char option;
     std::string name;
     std::cin >> roster_size;
-    
-    
+
+
     Student_Info* student_info = nullptr;
     student_info = new Student_Info[roster_size];
-    for (int i=0; i<roster_size; ++i)
+    for (int i = 0; i < roster_size; ++i)
     {
         std::cin >> id >> option;
         std::cin.ignore(1);
@@ -61,68 +56,65 @@ int main() {
         student_info[i].name = name;
         student_info[i].student_id = id;
         student_info[i].grade_option = option;
+        //student_info[i].score = 0.0;
     }
-    // Student_Info* student_info = new Student_Info[roster_size];
-    
-    for (int i=0; i<roster_size;++i)
-    {
-        std::cout << student_info[i].name  
-        <<  student_info[i].student_id 
-        << student_info[i].grade_option << std::endl;
-    }
-    
-    // for (int i =0; i<roster_size;++i)
-    // {
-        // std::cin >> id >> option;
-        // std::getline(std::cin, name);
-        
-    //     // std::cout << id << "   " << option << "   " << name << std::endl;
-    // }
-    
+
+
     // --------------- End of Student Info -----------
 
 
     //  -------------Start of Raw Scores --------------
-    
-    int raw_size, assignment_score;
+
+    int raw_size, assignment_score, stud_id;
     std::cin >> raw_size;
-    int* assignments = new int [grade_size+1];
+    double the_score = 0;
+    int the_scale = 0;
+    int artif = 0;
+    double total = 0;
+
     
-    while (raw_size!=0){
-    for (int i=0;i<grade_size+1;++i)
+    while (raw_size != 0)
     {
-        std::cin>> assignment_score;
-        assignments[i] = assignment_score;
-    }
-    
-    for (int i=0; i<grade_size+1; ++i)
-    {
-        std::cout << assignments[i]<< ' ';
-    }
-    std::cout << std::endl;
-    raw_size-=1;
-    }
-
-    // ---------- End of Raw Scores -----------
-
-    // --------- Start of Cutoffs ------------
-    int cut_sets;
-    double cut_offs[4];
-    double percents;
-
-    std::cin >> cut_sets;
-    for (int i=0;i<cut_sets;++i)
-    {
-        for (int i=0; i<4;++i)
+        the_score = 0;
+        std::cin >> stud_id; // 0 index is the studet id
+        for (int field = 0;field < grade_size;field++)
         {
-            std::cin>> percents;
-            cut_offs[i] = percents;
+            std::cin >> assignment_score;
+            the_scale = grade_scale[field];
+            artif = grade_art[field];
+            total = (double(assignment_score) / double(artif)) * the_scale;
+            the_score = the_score + total;
         }
-        for (int i=0; i< 4;++i)
+        for (int student = 0; student < roster_size;student++) // Here it looks for the matching student id
+        {
+            if (stud_id == student_info[student].student_id)
+            {
+                student_info[student].score = the_score;
+            }
+        }
+        raw_size--;
+    }
+    std::cout << "TOTAL SCORES" << std::endl;
+    for (int st = 0;st < 5;st++)
     {
-        std::cout << cut_offs[i] << " ";
+
+        std::cout << student_info[st].student_id << ' ' << 
+        student_info[st].name << ' ' << student_info[st].score << std::endl;
     }
-    std::cout << std::endl;
-    }
+
+    // --------------- End of STudent score update ---------------------------------------------
+
+    int cutsize;
+    double B,C,D,F;
+    char grade_letter = {'A','B','C','D','F','P','N'}
+
+
+    std::cin >> cut_size;
+    // while (cut_size!=0)
+    // {
+    //     std::cin >> B >> C >> D >> F;
+    //     for (int )
+    // }
     
+
 }
