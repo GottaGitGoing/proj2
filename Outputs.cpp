@@ -3,7 +3,16 @@
 #include <string>
 #include "StudentRecords.hpp"
 
+void CreateScoreOut(int roster_size, Student_Info *student_info)
+{
+   std::cout << "TOTAL SCORES" << std::endl;
+    for (int st = 0;st < roster_size;st++)
+    {
 
+        std::cout << student_info[st].student_id << ' ' << 
+        student_info[st].name << ' ' << student_info[st].score << std::endl;
+    } 
+}
 
 void CreateCutOut(Student_Info *student_info, int roster_size, int cut_size)
 {
